@@ -1,5 +1,6 @@
 n=input()
-if  n>'a' or n< 'z':
-    print ("no")
-else:
+try:
+    int(n)
+    print("no")
+except :
     print("yes")
