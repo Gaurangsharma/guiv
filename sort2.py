@@ -1,4 +1,4 @@
-l=list(map(int,input().split()))
-l.sort()
-for i in l:
+s=list(map(int,input().split()))
+s.sort()
+for i in s:
     print(i,end=' ')
