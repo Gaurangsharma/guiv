@@ -4,4 +4,7 @@ ll=[]
 for i in l:
     if l.count(i)>1:
         ll.append(i)
-print(ll[0])
+if ll==[]:
+    print("unique")
+else:
+    print(ll[0])
