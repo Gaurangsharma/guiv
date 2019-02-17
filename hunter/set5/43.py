@@ -1,15 +1,19 @@
+import re
 l=list(input())
-i=0
-c=''
-d=''
-while(i<len(l)-1): 
-    if ord(l[i])>97 and ord(l[i])<122:
-        c=''.join(l[i])
-    if ord(l[i])>48 and ord(l[i])<57:
-        d+=''.join(l[i])
-    print(c,d)
-    if ord(l[i+1])>97 and ord(l[i+1])<122:
-        print(c*int(d),end='')
-        i+=1 
+num,alp=0,''
+for i in range(len(l)):
+    if re.match('\D', l[i]): 
+        alp=l[i]
+    else: 
+        num=num*10+int(l[i])  
+    if i!=len(l)-1:
+        if re.match('\D', l[i+1]):
+            if num%2==0:
+                print(alp*num,end='')
+            else:print(alp,num,sep='',end='')
+            num,alp=0,''
     else:
-        i+=1
+        if num%2==0:
+            print(alp*num,end='')
+        else:
+            print(alp,num,sep='',end='')
