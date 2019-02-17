@@ -14,5 +14,6 @@ while(n!=0):
         n-=1
 ll=list(set(l))
 ll=sorted(ll) 
+print(len(ll))
 print(ll[p-1])
 ##timecomplexity is more for big numbers
