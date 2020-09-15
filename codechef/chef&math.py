@@ -1,32 +1,26 @@
-t=int(input())
-if(t<=100):
-    for _ in range(t):
-        n=list(input())
-        print("Test case: "+str(_+1))
-        for i in range(int(input())):
-            status=False
-            a=list(input())
-            num,char=a[0],a[1]
-            if(char=="*"):
-                ans=0
+k=1
+for _ in range(int(input())):
+    n=list(input())
+    for i in range(int(input())):
+        num,char=map(str,input().split())
+        if(i==0):
+            print("Test case : ",k)
+        ans=0
+        if(char=="+"):
+            for j in range(len(n)):
+                ans+=int(n[j])+int(num)
+                n[j]=str(int(n[j])+int(num))
+            print(ans)
+        elif(char=="*"):
+            for j in range(len(n)):
+                ans+=int(n[j])*int(num)
+            print(ans)
+        else:
+            if(num=='0'):
+                print("INVALID INPUT.'0' IS EVIL")
+            else:
                 for j in range(len(n)):
-                    ans+=int(n[j])*int(num)
+                    ans+=int(n[j])//int(num)
                 print(ans)
-            if(char=="/"):
-                ans=0
-                for j in range(len(n)):
-                    if(num!='0'):
-                        ans+=int(int(n[j])/int(num))
-                    else:
-                        status=True
-                        break
-                if(status):
-                    print("INVALID INPUT.'0' IS EVIL")
-                else:
-                    print(ans)
-            if(char=="+"):
-                ans=0
-                for j in range(len(n)):
-                    ans+=int(n[j])+int(num)
-                    n[j]=int(n[j])+int(num)
-                print(ans)
+            
+    k+=1
